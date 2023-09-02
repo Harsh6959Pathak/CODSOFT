@@ -12,7 +12,6 @@
         crossorigin="anonymous"
         referrerpolicy="no-referrer"></script>
 
-    <!-- For styling -->
     <style>
         body {
             display: flex;
@@ -71,7 +70,7 @@
 
 <body>
 
-    <!-- Calculator -->
+    
     <div class="calculator">
         <input type="text" id="result" readonly>
         <div class="keypad">
@@ -96,19 +95,19 @@
     </div>
 
     <script>
-        // Function that displays value
+
         function dis(val) {
             document.getElementById("result").value += val
         }
 
-        // Function that evaluates the expression and returns the result
+      
         function solve() {
             let x = document.getElementById("result").value;
             let y = math.evaluate(x);
             document.getElementById("result").value = y;
         }
 
-        // Function that clears the display
+       
         function clr() {
             document.getElementById("result").value = "";
         }
