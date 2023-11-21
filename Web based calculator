@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>JavaScript Calculator</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjs/10.6.4/math.js"
+        integrity="sha512-BbVEDjbqdN3Eow8+empLMrJlxXRj5nEitiCAK5A1pUr66+jLVejo3PmjIaucRnjlB0P9R3rBUs3g5jXc8ti+fQ=="
+        crossorigin="anonymous"
+        referrerpolicy="no-referrer"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjs/10.6.4/math.min.js"
+        integrity="sha512-iphNRh6dPbeuPGIrQbCdbBF/qcqadKWLa35YPVfMZMHBSI6PLJh1om2xCTWhpVpmUyb4IvVS9iYnnYMkleVXLA=="
+        crossorigin="anonymous"
+        referrerpolicy="no-referrer"></script>
+
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            background: url('background.jpg'); /* Replace with your background image */
+            background-size: cover;
+        }
+
+        .calculator {
+            text-align: center;
+            width: 400px;
+            background: rgba(255, 255, 255, 0.8); /* Background with blur effect */
+            padding: 20px;
+            border-radius: 10px;
+        }
+
+        input[type="text"] {
+            padding: 20px;
+            font-size: 24px;
+            font-weight: bold;
+            border: 2px solid black;
+            border-radius: 5px;
+            width: 100%;
+            margin-bottom: 10px;
+        }
+
+        .keypad {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            grid-gap: 5px;
+        }
+
+        input[type="button"] {
+            padding: 15px;
+            font-size: 24px;
+            font-weight: bold;
+            border: none;
+            border-radius: 5px;
+            background-color: #333; /* Button background color */
+            color: white; /* Button text color */
+        }
+
+        input[type="button"]:hover {
+            background-color: #555; /* Hover color */
+        }
+
+        .clear-button {
+            grid-column: span 4; /* Make it span all columns */
+            background-color: #FF5722; /* Clear button background color */
+        }
+    </style>
+</head>
+
+<body>
+
+    
+    <div class="calculator">
+        <input type="text" id="result" readonly>
+        <div class="keypad">
+            <input type="button" value="1" onclick="dis('1')">
+            <input type="button" value="2" onclick="dis('2')">
+            <input type="button" value="3" onclick="dis('3')">
+            <input type="button" value="/" onclick="dis('/')">
+            <input type="button" value="4" onclick="dis('4')">
+            <input type="button" value="5" onclick="dis('5')">
+            <input type="button" value="6" onclick="dis('6')">
+            <input type="button" value="*" onclick="dis('*')">
+            <input type="button" value="7" onclick="dis('7')">
+            <input type="button" value="8" onclick="dis('8')">
+            <input type="button" value="9" onclick="dis('9')">
+            <input type="button" value="-" onclick="dis('-')">
+            <input type="button" value="0" onclick="dis('0')">
+            <input type="button" value="." onclick="dis('.')">
+            <input type="button" value="=" onclick="solve()">
+            <input type="button" value="+" onclick="dis('+')">
+        </div>
+        <input type="button" class="clear-button" value="C" onclick="clr()">
+    </div>
+
+    <script>
+
+        function dis(val) {
+            document.getElementById("result").value += val
+        }
+
+      
+        function solve() {
+            let x = document.getElementById("result").value;
+            let y = math.evaluate(x);
+            document.getElementById("result").value = y;
+        }
+
+       
+        function clr() {
+            document.getElementById("result").value = "";
+        }
+    </script>
+</body>
+
+</html>
